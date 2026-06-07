@@ -1,0 +1,8 @@
+{
+    "title": "采购建议",
+    "productName": "产品名称",
+    "minStock": "最低库存",
+    "currentStock": "当前库存",
+    "recommendedQty": "建议采购数量",
+    "lastTakenAt": "最后盘点时间"
+  }

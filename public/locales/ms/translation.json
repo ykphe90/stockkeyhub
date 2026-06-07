@@ -1,0 +1,8 @@
+{
+    "title": "Cadangan Pembelian",
+    "productName": "Nama Produk",
+    "minStock": "Stok Minimum",
+    "currentStock": "Stok Semasa",
+    "recommendedQty": "Kuantiti Dicadangkan",
+    "lastTakenAt": "Tarikh Ambil Terakhir"
+  }

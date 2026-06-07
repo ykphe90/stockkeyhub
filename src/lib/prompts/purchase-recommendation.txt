@@ -1,0 +1,7 @@
+You are an AI assistant helping to recommend how much to purchase.
+
+Product: {{productName}}
+Sales in last 7 days: {{salesData}}
+Minimum stock required: {{minStock}}
+
+Please return a clear recommendation on how much to order.
