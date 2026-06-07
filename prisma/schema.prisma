@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id            Int     @id @default(autoincrement())
+  code          String  @unique         
+  name          String  @unique         
+  chineseName   String                  
+  minStock      Int                     
+  uom           String                  
+  unitPrice     Float                   
+  imageUrl      String?
+
+  stockTakes    StockTake[]
+  sales         Sale[]
+  purchases     Purchase[]
+  PurchaseOrders     PurchaseOrder[]
+}
+
+model StockTake {
+  id          Int      @id @default(autoincrement())
+  product     Product  @relation(fields: [productId], references: [id])
+  productId   Int
+  quantity    Int
+  takenAt     DateTime @default(now())
+}
+
+model Sale {
+  id          Int      @id @default(autoincrement())
+  product     Product  @relation(fields: [productId], references: [id])
+  productId   Int
+  quantity    Int
+  soldAt      DateTime @default(now())
+}
+
+model Purchase {
+  id          Int      @id @default(autoincrement())
+  product     Product  @relation(fields: [productId], references: [id])
+  productId   Int
+  quantity    Int
+  purchasedAt DateTime @default(now())
+}
+
+enum PurchaseOrderStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+  COMPLETED
+}
+
+model PurchaseOrder {
+  id        Int      @id @default(autoincrement())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId Int
+  quantity  Int
+  status    PurchaseOrderStatus @default(DRAFT)
+  createdAt DateTime @default(now())
+}

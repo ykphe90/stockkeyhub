@@ -1,0 +1,8 @@
+{
+    "title": "Purchase Recommendation",
+    "productName": "Product Name",
+    "minStock": "Minimum Stock",
+    "currentStock": "Current Stock",
+    "recommendedQty": "Recommended Quantity",
+    "lastTakenAt": "Last Taken At"
+  }
