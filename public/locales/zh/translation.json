@@ -1,8 +1,24 @@
 {
-    "title": "采购建议",
-    "productName": "产品名称",
-    "minStock": "最低库存",
-    "currentStock": "当前库存",
-    "recommendedQty": "建议采购数量",
-    "lastTakenAt": "最后盘点时间"
-  }
+  "title": "采购建议",
+  "appTitle": "StockKeyHub – AI 采购推荐",
+  "subtitle": "基于近期销售、当前库存和最低安全库存的 AI 建议。",
+  "lastGenerated": "生成时间",
+  "exportAll": "导出全部",
+  "generate": "生成推荐",
+  "generating": "生成中…",
+  "productName": "产品名称",
+  "code": "编码",
+  "name": "名称",
+  "stock": "库存",
+  "last7d": "近7天",
+  "minStock": "最低库存",
+  "currentStock": "当前库存",
+  "aiRec": "AI 推荐",
+  "finalQty": "最终数量",
+  "reason": "原因",
+  "recommendedQty": "建议采购数量",
+  "lastTakenAt": "最后盘点时间",
+  "noData": "暂无数据",
+  "noDataYet": "暂无数据，点击",
+  "toStart": "开始。"
+}

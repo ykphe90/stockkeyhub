@@ -1,8 +1,24 @@
 {
-    "title": "Purchase Recommendation",
-    "productName": "Product Name",
-    "minStock": "Minimum Stock",
-    "currentStock": "Current Stock",
-    "recommendedQty": "Recommended Quantity",
-    "lastTakenAt": "Last Taken At"
-  }
+  "title": "Purchase Recommendation",
+  "appTitle": "StockKeyHub – AI Purchase Recommendation",
+  "subtitle": "AI suggestions based on recent sales, current stock and minimum safety stock.",
+  "lastGenerated": "Last generated at",
+  "exportAll": "Export All",
+  "generate": "Generate Recommendation",
+  "generating": "Generating…",
+  "productName": "Product Name",
+  "code": "Code",
+  "name": "Name",
+  "stock": "Stock",
+  "last7d": "Last 7d",
+  "minStock": "Minimum Stock",
+  "currentStock": "Current Stock",
+  "aiRec": "AI Rec",
+  "finalQty": "Final Qty",
+  "reason": "Reason",
+  "recommendedQty": "Recommended Quantity",
+  "lastTakenAt": "Last Taken At",
+  "noData": "No data available",
+  "noDataYet": "No data yet. Click",
+  "toStart": "to start."
+}

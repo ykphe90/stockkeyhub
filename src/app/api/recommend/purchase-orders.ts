@@ -7,20 +7,20 @@ const prisma = new PrismaClient();
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { items } = body; // 接收一个数组: [{ productId: 1, quantity: 10 }, ...]
+    const { items } = body; // receive an array: [{ productId: 1, quantity: 10 }, ...]
 
     if (!Array.isArray(items) || items.length === 0) {
       return NextResponse.json({ error: 'No items provided' }, { status: 400 });
     }
 
-    // 使用 Transaction 保证原子性：要么全成功，要么全失败
+    // use transaction for atomicity: all succeed or all fail
     const result = await prisma.$transaction(
       items.map((item) =>
         prisma.purchaseOrder.create({
           data: {
             productId: item.productId,
             quantity: item.quantity,
-            status: 'DRAFT', // 确保你的 schema 里的 enum 和这里匹配
+            status: 'DRAFT', // ensure the enum in your schema matches this value
           },
         })
       )

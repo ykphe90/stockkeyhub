@@ -20,8 +20,8 @@ export type ProductMetrics = {
 };
 
 /**
- * 从数据库拉出每个 Product 的库存 & 销量指标，
- * 给 AI 推荐用，也可以直接给前端 UI 用。
+ * Get inventory & sales metrics for each product from database.
+ * Used for AI recommendations and frontend display.
  */
 export async function getProductMetrics(): Promise<ProductMetrics[]> {
   const products = await prisma.product.findMany({
@@ -39,19 +39,19 @@ export async function getProductMetrics(): Promise<ProductMetrics[]> {
   d30.setDate(d30.getDate() - 30);
 
   const metrics: ProductMetrics[] = products.map((p) => {
-    // 最新一次 StockTake 当作 current stock
+    // use latest stock take as current stock
     const latestStockTake = [...p.stockTakes].sort(
       (a, b) => b.takenAt.getTime() - a.takenAt.getTime()
     )[0];
 
     const currentStock = latestStockTake?.quantity ?? 0;
 
-    // 最近 7 天销量
+    // last 7 days sales
     const last7dSales = p.sales
       .filter((s) => s.soldAt >= d7)
       .reduce((sum, s) => sum + s.quantity, 0);
 
-    // 最近 30 天销量
+    // last 30 days sales
     const last30dSales = p.sales
       .filter((s) => s.soldAt >= d30)
       .reduce((sum, s) => sum + s.quantity, 0);
@@ -75,7 +75,7 @@ export async function getProductMetrics(): Promise<ProductMetrics[]> {
     };
   });
 
-  // 让输出稳定一点：按 code 排序
+  // sort by code for consistent output
   metrics.sort((a, b) => a.code.localeCompare(b.code));
 
   return metrics;

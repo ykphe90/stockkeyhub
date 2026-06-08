@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { dir } from "i18next";
-import { languages } from "@/i18n/settings"; // 自定义语言设置
+import { languages } from "@/i18n/settings"; // custom language settings
 import { Geist, Geist_Mono } from "next/font/google";
 import './globals.css';
 

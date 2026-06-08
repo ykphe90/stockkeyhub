@@ -1,8 +1,24 @@
 {
-    "title": "Cadangan Pembelian",
-    "productName": "Nama Produk",
-    "minStock": "Stok Minimum",
-    "currentStock": "Stok Semasa",
-    "recommendedQty": "Kuantiti Dicadangkan",
-    "lastTakenAt": "Tarikh Ambil Terakhir"
-  }
+  "title": "Cadangan Pembelian",
+  "appTitle": "StockKeyHub – Cadangan Pembelian AI",
+  "subtitle": "Cadangan AI berdasarkan jualan terkini, stok semasa dan stok keselamatan minimum.",
+  "lastGenerated": "Dijana pada",
+  "exportAll": "Eksport Semua",
+  "generate": "Jana Cadangan",
+  "generating": "Menjana…",
+  "productName": "Nama Produk",
+  "code": "Kod",
+  "name": "Nama",
+  "stock": "Stok",
+  "last7d": "7 Hari Lepas",
+  "minStock": "Stok Minimum",
+  "currentStock": "Stok Semasa",
+  "aiRec": "Cadangan AI",
+  "finalQty": "Kuantiti Akhir",
+  "reason": "Sebab",
+  "recommendedQty": "Kuantiti Dicadangkan",
+  "lastTakenAt": "Tarikh Ambil Terakhir",
+  "noData": "Tiada data",
+  "noDataYet": "Tiada data lagi. Klik",
+  "toStart": "untuk mula."
+}
