@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StockKeyHub — F&B Procurement AI (Frontend)
+
+An AI-powered procurement recommendation system for the F&B industry. This is the **frontend + API gateway** built with Next.js 15, connecting to a Python FastAPI backend for intelligent stock analysis.
+
+> Part of a two-repo architecture: this repo handles UI and data layer; [StockKeyHub-v2](https://github.com/pheyk/StockKeyHub-v2) handles the AI engine.
+
+## What It Does
+
+Restaurant procurement managers input their inventory data — the system analyzes stock levels, sales trends, and reorder urgency, then returns actionable purchase recommendations with structured explanations in English, Chinese, or Malay.
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────┐
+│  StockKeyHub v1 (this repo)                 │
+│  Next.js 15 · Prisma · SQLite               │
+│                                              │
+│  /recommend      → Procurement dashboard     │
+│  /api/recommend   → Proxy to Python backend   │
+│  /lib/getProductMetrics → DB queries          │
+└──────────────┬──────────────────────────────┘
+               │  HTTP (JSON)
+               ▼
+┌─────────────────────────────────────────────┐
+│  StockKeyHub v2 (separate repo)             │
+│  Python · FastAPI · OpenAI                   │
+│                                              │
+│  Rule Engine → LLM Enhancement → Response    │
+│  Function Calling Agent (in progress)        │
+└─────────────────────────────────────────────┘
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Database**: SQLite via Prisma ORM
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **i18n**: Inline translation map (EN / ZH / MS)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up database
+npx prisma generate
+npx prisma db push
+npm run db:seed
+
+# 3. Configure environment
+cp .env.example .env
+# Add your API keys to .env
+
+# 4. Start the Python backend (separate repo)
+# See StockKeyHub-v2 README
+
+# 5. Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/
+│   ├── page.tsx                 # Landing page
+│   ├── recommend/page.tsx       # Procurement dashboard (i18n)
+│   └── api/recommend/route.ts   # API proxy → Python backend
+├── lib/
+│   ├── getProductMetrics.ts     # Prisma DB queries
+│   └── prompts/                 # Prompt templates
+└── i18n/
+    └── settings.ts              # i18n configuration
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Related
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [StockKeyHub-v2](https://github.com/pheyk/StockKeyHub-v2) — Python FastAPI AI backend
