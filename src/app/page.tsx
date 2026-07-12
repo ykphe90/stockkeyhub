@@ -41,45 +41,51 @@ export default function Home() {
             Analyze stock levels, predict reorder quantities, and generate purchase orders — all driven by AI.
           </p>
 
-          {/* Feature cards */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Link
-              href="/chat"
-              className="group rounded-xl border border-gray-200 bg-white px-6 py-6 text-left shadow-sm transition hover:border-amber-300 hover:shadow-md"
-            >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          {/* CTA */}
+          <Link
+            href="/chat"
+            className="group inline-flex items-center gap-2 rounded-full bg-amber-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-amber-200 transition hover:bg-amber-600 hover:shadow-xl"
+          >
+            Start Chat
+            <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
+
+          {/* Feature highlights */}
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-xl bg-white/80 px-5 py-5 text-center">
+              <div className="mb-2 flex justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
                 </svg>
               </div>
-              <h2 className="mb-1 text-lg font-semibold text-gray-900 group-hover:text-amber-600">
-                Procurement Agent
-                <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
-              </h2>
-              <p className="text-sm text-gray-500">
-                Chat with the AI agent to check inventory, analyze sales trends, and generate purchase orders.
-              </p>
-            </Link>
-
-            <Link
-              href="/recommend"
-              className="group rounded-xl border border-gray-200 bg-white px-6 py-6 text-left shadow-sm transition hover:border-amber-300 hover:shadow-md"
-            >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <h3 className="text-sm font-semibold text-gray-800">Inventory Check</h3>
+              <p className="mt-1 text-xs text-gray-400">Real-time stock levels and safety alerts</p>
+            </div>
+            <div className="rounded-xl bg-white/80 px-5 py-5 text-center">
+              <div className="mb-2 flex justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="20" x2="18" y2="10" />
                   <line x1="12" y1="20" x2="12" y2="4" />
                   <line x1="6" y1="20" x2="6" y2="14" />
                 </svg>
               </div>
-              <h2 className="mb-1 text-lg font-semibold text-gray-900 group-hover:text-amber-600">
-                AI Stock Analysis
-                <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
-              </h2>
-              <p className="text-sm text-gray-500">
-                Get AI-powered purchase recommendations based on current stock, sales data, and safety levels.
-              </p>
-            </Link>
+              <h3 className="text-sm font-semibold text-gray-800">Sales Analysis</h3>
+              <p className="mt-1 text-xs text-gray-400">7-day and 30-day trend insights</p>
+            </div>
+            <div className="rounded-xl bg-white/80 px-5 py-5 text-center">
+              <div className="mb-2 flex justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+              </div>
+              <h3 className="text-sm font-semibold text-gray-800">PO Generation</h3>
+              <p className="mt-1 text-xs text-gray-400">Auto-generate purchase orders</p>
+            </div>
           </div>
         </div>
       </main>
