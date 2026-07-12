@@ -2,53 +2,92 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-8 sm:p-24 bg-gray-50 dark:bg-zinc-900 text-gray-900 dark:text-gray-100">
-      {/* 顶部标题栏 */}
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex mb-12">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-white lg:p-4 dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:dark:bg-zinc-800/30">
-          StockKeyHub&nbsp;
-          <code className="font-mono font-bold">v0.1.0</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <span className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0">
-            F&B Procurement AI
-          </span>
+    <div className="flex min-h-screen flex-col bg-[#FFF8F2]">
+      {/* Header */}
+      <header className="border-b-2 border-amber-500 bg-white px-6 py-4">
+        <div className="mx-auto flex max-w-4xl items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-500">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2" />
+              <circle cx="12" cy="5" r="2" />
+              <line x1="12" y1="7" x2="12" y2="11" />
+              <line x1="8" y1="16" x2="8" y2="16.01" />
+              <line x1="16" y1="16" x2="16" y2="16.01" />
+            </svg>
+          </div>
+          <span className="text-lg font-semibold text-gray-900">StockKeyHub</span>
         </div>
-      </div>
+      </header>
 
-      {/* 核心功能入口区 */}
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left gap-6 max-w-5xl w-full">
-        
-        {/* 卡片 1: AI 采购建议 (核心功能) */}
-        <Link
-          href="/recommend"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 bg-white dark:bg-zinc-800/50 border-gray-200 dark:border-neutral-800 shadow-sm"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            AI Stock Analysis{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-60 text-balance`}>
-            Upload inventory CSV and get AI purchase recommendations instantly.
-          </p>
-        </Link>
+      {/* Hero */}
+      <main className="flex flex-1 flex-col items-center justify-center px-6">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="mb-6 flex justify-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500 shadow-lg shadow-amber-200">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <circle cx="12" cy="5" r="2" />
+                <line x1="12" y1="7" x2="12" y2="11" />
+                <line x1="8" y1="16" x2="8" y2="16.01" />
+                <line x1="16" y1="16" x2="16" y2="16.01" />
+              </svg>
+            </div>
+          </div>
 
-        {/* 卡片 2: 历史订单 (未来功能) */}
-        <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors border-gray-200 dark:border-neutral-800 opacity-50 cursor-not-allowed"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            History & Trends{' '}
-            <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded ml-2">Coming Soon</span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-60 text-balance`}>
-            View past purchase orders and price fluctuation analysis.
+          <h1 className="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl">
+            AI-Powered Procurement for F&B
+          </h1>
+          <p className="mb-10 text-base text-gray-500 sm:text-lg">
+            Analyze stock levels, predict reorder quantities, and generate purchase orders — all driven by AI.
           </p>
+
+          {/* Feature cards */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/chat"
+              className="group rounded-xl border border-gray-200 bg-white px-6 py-6 text-left shadow-sm transition hover:border-amber-300 hover:shadow-md"
+            >
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <h2 className="mb-1 text-lg font-semibold text-gray-900 group-hover:text-amber-600">
+                Procurement Agent
+                <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+              </h2>
+              <p className="text-sm text-gray-500">
+                Chat with the AI agent to check inventory, analyze sales trends, and generate purchase orders.
+              </p>
+            </Link>
+
+            <Link
+              href="/recommend"
+              className="group rounded-xl border border-gray-200 bg-white px-6 py-6 text-left shadow-sm transition hover:border-amber-300 hover:shadow-md"
+            >
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                </svg>
+              </div>
+              <h2 className="mb-1 text-lg font-semibold text-gray-900 group-hover:text-amber-600">
+                AI Stock Analysis
+                <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+              </h2>
+              <p className="text-sm text-gray-500">
+                Get AI-powered purchase recommendations based on current stock, sales data, and safety levels.
+              </p>
+            </Link>
+          </div>
         </div>
+      </main>
 
-      </div>
-    </main>
+      {/* Footer */}
+      <footer className="py-4 text-center text-xs text-gray-400">
+        StockKeyHub v0.1.0 &middot; Hybrid AI (Rule Engine + LLM)
+      </footer>
+    </div>
   );
 }
