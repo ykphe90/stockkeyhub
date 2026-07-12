@@ -16,6 +16,7 @@ Restaurant procurement managers input their inventory data — the system analyz
 │  Next.js 15 · Prisma · SQLite               │
 │                                              │
 │  /recommend      → Procurement dashboard     │
+│  /chat           → Agent chat interface       │
 │  /api/recommend   → Proxy to Python backend   │
 │  /lib/getProductMetrics → DB queries          │
 └──────────────┬──────────────────────────────┘
@@ -26,7 +27,7 @@ Restaurant procurement managers input their inventory data — the system analyz
 │  Python · FastAPI · OpenAI                   │
 │                                              │
 │  Rule Engine → LLM Enhancement → Response    │
-│  Function Calling Agent (in progress)        │
+│  Function Calling Agent + Chat                │
 └─────────────────────────────────────────────┘
 ```
 
@@ -68,6 +69,7 @@ src/
 ├── app/
 │   ├── page.tsx                 # Landing page
 │   ├── recommend/page.tsx       # Procurement dashboard (i18n)
+│   ├── chat/page.tsx            # Agent chat interface
 │   └── api/recommend/route.ts   # API proxy → Python backend
 ├── lib/
 │   ├── getProductMetrics.ts     # Prisma DB queries

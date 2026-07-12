@@ -27,7 +27,7 @@ export default function RootLayout({
   params: { lang: string };
 }) {
   return (
-    <html lang={params.lang} dir={dir(params.lang)}>
+    <html lang={params.lang} dir="lrt">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
