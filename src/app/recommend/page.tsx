@@ -114,9 +114,9 @@ export default function RecommendPage() {
       setItems(data.items || []);
       setShowTable(true);
       setGeneratedAt(new Date().toLocaleString());
-    } catch (e: any) {
+    } catch (e: unknown) {
       console.error(e);
-      setError(e.message || 'Failed to fetch recommendations');
+      setError(e instanceof Error ? e.message :'Failed to fetch recommendations');
     } finally {
       setLoading(false);
     }

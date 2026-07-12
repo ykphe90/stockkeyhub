@@ -63,7 +63,7 @@ export async function getProductMetrics(): Promise<ProductMetrics[]> {
       productId: p.id,
       code: p.code,
       name: p.name,
-      chineseName: (p as any).chineseName ?? null,
+      chineseName: (p as unknown as { chineseName?: string | null }).chineseName ?? null,
       uom: p.uom,
       unitPrice: p.unitPrice,
       minStock: p.minStock,

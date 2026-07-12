@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 
 type ToolCall = {
   name: string;
-  args: Record<string, any>;
+  args: Record<string, string>;
 };
 
 type Message = {
@@ -54,10 +54,10 @@ export default function ChatPage() {
         toolCalls: data.tool_calls || [],
       };
       setMessages((prev) => [...prev, assistantMsg]);
-    } catch (e: any) {
+    } catch (e: unknown) {
       const errorMsg: Message = {
         role: 'assistant',
-        content: `Error: ${e.message || 'Failed to get response'}`,
+        content: `Error: ${e instanceof Error ? e.message : 'Failed to get response'}`,
       };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {

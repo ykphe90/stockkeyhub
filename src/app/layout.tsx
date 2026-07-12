@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { dir } from "i18next";
-import { languages } from "@/i18n/settings"; // custom language settings
 import { Geist, Geist_Mono } from "next/font/google";
 import './globals.css';
 
@@ -21,13 +19,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
 }) {
   return (
-    <html lang={params.lang} dir="lrt">
+    <html lang="en" dir="ltr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

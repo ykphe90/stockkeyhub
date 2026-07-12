@@ -26,7 +26,6 @@ export async function POST(req: NextRequest) {
       reason: 'AI did not provide a reason.',
     }));
 
-    const systemLang = lang === 'zh' ? 'Chinese' : lang ==='en' ? 'English' : 'Malay';
     const response = await fetch('http://localhost:8000/api/v1/recommend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -43,7 +42,7 @@ export async function POST(req: NextRequest) {
   
     // merge with original metrics
     const merged = metrics.map((m) => {
-      const r = recs.find((x: any) => x.code === m.code);
+      const r = recs.find((x: { code: string; qty?: number; reason?: { explanation?: string } }) => x.code === m.code);
       return {
         ...m,
         recommendedQty: r?.qty ?? 0,
